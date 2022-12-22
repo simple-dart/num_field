@@ -7,7 +7,6 @@ class NumField extends Component with ValueChangeEventSource<num>, MixinDisable 
     numberInput.style
       ..width = '100%'
       ..flexGrow = '1';
-    element.children.add(numberInput);
     numberInput.onInput.listen((event) {
       fireValueChange(value, value);
     });
@@ -15,22 +14,9 @@ class NumField extends Component with ValueChangeEventSource<num>, MixinDisable 
   }
 
   @override
-  DivElement element = DivElement();
+  Element get element => numberInput;
 
-  @override
-  List<Element> get disableElements => [numberInput];
   TextInputElement numberInput = TextInputElement();
-
-  @override
-  set width(String width) {
-    numberInput.style.width = width;
-    element.style.width = width;
-  }
-
-  @override
-  set height(String height) {
-    element.style.height = height;
-  }
 
   num get value => num.tryParse(numberInput.value!) ?? 0;
 
