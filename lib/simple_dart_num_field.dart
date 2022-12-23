@@ -4,9 +4,6 @@ import 'package:simple_dart_ui_core/simple_dart_ui_core.dart';
 
 class NumField extends Component with ValueChangeEventSource<num>, MixinDisable implements StateComponent<num> {
   NumField() : super('NumField') {
-    numberInput.style
-      ..width = '100%'
-      ..flexGrow = '1';
     numberInput.onInput.listen((event) {
       fireValueChange(value, value);
     });
